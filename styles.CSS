@@ -1,0 +1,177 @@
+/* Default Light Mode Styles (Blue) */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e0f7fa; /* Light blue background */
+    color: #00796b; /* Dark teal text */
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+header {
+    background-color: #00796b; /* Teal header */
+    color: black;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo h1 {
+    font-size: 24px;
+}
+
+header nav ul {
+    display: flex;
+    list-style-type: none;
+}
+
+header nav ul li {
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+}
+
+header nav ul li a:hover {
+    color: #80cbc4; /* Light teal for hover */
+}
+
+header .mode-toggle {
+    background: none;
+    border: none;
+    color: black;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+header .mode-toggle:hover {
+    color: #80cbc4; /* Light teal for hover */
+}
+
+/* Hero Section */
+.hero {
+    background-color: #0288d1; /* Bright blue background */
+    text-align: center;
+    padding: 50px 20px;
+    color: black;
+}
+
+.hero h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+hero p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.hero .btn {
+    background-color: #00796b; /* Teal button */
+    color: black;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.hero .btn:hover {
+    background-color: #004d40; /* Darker teal for hover */
+}
+
+/* Features Section */
+.features {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #000000; /* Black background */
+}
+
+.features h2 {
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+
+.feature-item {
+    display: inline-block;
+    width: 30%;
+    margin: 20px;
+    padding: 20px;
+    background-color: #b2ebf2; /* Light blue for cards */
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: black;
+}
+
+.feature-item h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.feature-item p {
+    font-size: 16px;
+    color: #00796b;
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #00796b; /* Teal footer */
+    color: black;
+}
+
+/* Dark Mode Styles (Blue) */
+body.dark-mode {
+    background-color: #003c49; /* Dark blue background */
+    color: #b2ebf2; /* Light blue text */
+}
+
+body.dark-mode header {
+    background-color: #004d40; /* Darker teal header */
+}
+
+body.dark-mode .hero {
+    background-color: #01579b; /* Dark blue hero section */
+    color: black;
+}
+
+body.dark-mode footer {
+    background-color: #004d40; /* Dark teal footer */
+}
+
+body.dark-mode .btn {
+    background-color: #0288d1; /* Bright blue button */
+    color: black;
+}
+
+body.dark-mode .btn:hover {
+    background-color: #0277bd; /* Slightly darker blue for hover */
+}
+
+body.dark-mode .game-item {
+    background-color: #004d40; /* Darker teal for cards */
+    color: #b2ebf2; /* Light blue text */
+}
+
+body.dark-mode .feature-item {
+    background-color: #01579b; /* Dark blue for cards */
+    color: #b2ebf2; /* Light blue text */
+}
+
+body.dark-mode header .mode-toggle {
+    color: black;
+}
+
+body.dark-mode header nav ul li a {
+    color: #b2ebf2; /* Light blue text for links */
+}
+
+body.dark-mode header nav ul li a:hover {
+    color: #80cbc4; /* Light teal for hover */
+}
+
+
+

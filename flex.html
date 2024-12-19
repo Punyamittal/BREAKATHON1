@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruitbox Flex Game</title>
+    <link rel="stylesheet" href="flex.css">
+</head>
+<body>
+    <header>
+        <h1>Fruitbox Flex 🍎🍌🍊</h1>
+        <p>Write CSS Flexbox code to align the fruits in the correct basket!</p>
+    </header>
+    <main>
+        <div class="game-container">,
+            <div class="instructions">
+                <h2>Instructions:</h2>
+                <p>Use the CSS editor below to adjust the position of the fruits. Once you write the correct code, the fruits will align with their baskets.</p>
+            </div>
+            <div id="play-area">
+                <div id="container">
+                    <div class="fruit">🍎</div>
+                    <div class="fruit">🍌</div>
+                    <div class="fruit">🍊</div>
+                </div>
+                <div class="baskets">
+                    <div class="basket">🧺</div>
+                    <div class="basket">🧺</div>
+                    <div class="basket">🧺</div>
+                </div>
+            </div>
+            <div class="code-editor">
+                <h2>Write Your CSS:</h2>
+                <textarea id="css-input" placeholder="#container { display: flex; justify-content: space-between; }"></textarea>
+                <button id="apply-code">Apply Code</button>
+            </div>
+            <div id="feedback"></div>
+        </div>
+    </main>
+    <footer>
+        <p>Made for learning Flexbox</p>
+    </footer>
+    <script src="flex.js"></script>
+</body>
+</html>
+
+

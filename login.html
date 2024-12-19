@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Quiz Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f8ff;
+        }
+        .game-container {
+            text-align: center;
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+        }
+        h1 {
+            color: #333;
+        }
+        .question {
+            font-size: 1.2em;
+            margin: 20px 0;
+        }
+        .options button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 1em;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .options button:hover {
+            background-color: #0056b3;
+        }
+        .feedback {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>Learn Coding: Code Quiz Game</h1>
+        <div class="question" id="question">What does HTML stand for?</div>
+        <div class="options">
+            <button onclick="checkAnswer(this)">Hyperlinks and Text Markup Language</button>
+            <button onclick="checkAnswer(this)">Hyper Text Markup Language</button>
+            <button onclick="checkAnswer(this)">Home Tool Markup Language</button>
+        </div>
+        <div class="feedback" id="feedback"></div>
+    </div>
+
+    <script>
+        const correctAnswer = "Hyper Text Markup Language";
+        const feedbackElement = document.getElementById("feedback");
+        const questionElement = document.getElementById("question");
+
+        function checkAnswer(button) {
+            if (button.textContent === correctAnswer) {
+                feedbackElement.textContent = "Correct! Well done!";
+                feedbackElement.style.color = "green";
+                setTimeout(loadNextQuestion, 2000);
+            } else {
+                feedbackElement.textContent = "Incorrect. Try again!";
+                feedbackElement.style.color = "red";
+            }
+        }
+
+        function loadNextQuestion() {
+            feedbackElement.textContent = "";
+            questionElement.textContent = "What does CSS stand for?";
+            const options = document.querySelectorAll(".options button");
+            options[0].textContent = "Cascading Style System";
+            options[1].textContent = "Cascading Style Sheets";
+            options[2].textContent = "Computer Style Sheets";
+
+            options[0].onclick = () => checkCSSAnswer(options[0]);
+            options[1].onclick = () => checkCSSAnswer(options[1]);
+            options[2].onclick = () => checkCSSAnswer(options[2]);
+        }
+
+        function checkCSSAnswer(button) {
+            const cssCorrectAnswer = "Cascading Style Sheets";
+            if (button.textContent === cssCorrectAnswer) {
+                feedbackElement.textContent = "Correct! You're learning fast!";
+                feedbackElement.style.color = "green";
+            } else {
+                feedbackElement.textContent = "Incorrect. Give it another shot!";
+                feedbackElement.style.color = "red";
+            }
+        }
+    </script>
+</body>
+</html>

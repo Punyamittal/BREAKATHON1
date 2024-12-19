@@ -1,0 +1,226 @@
+/* Default Light Mode Styles (Light Blue) */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e1f5fe; /* Very light blue background */
+    color: #0288d1; /* Lighter blue text */
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+header {
+    background-color: #4caf50; /* Lighter teal header */
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo h1 {
+    font-size: 24px;
+}
+
+header nav ul {
+    display: flex;
+    list-style-type: none;
+}
+
+header nav ul li {
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+}
+
+header nav ul li a:hover {
+    color: #81c784; /* Light green hover */
+}
+
+header .mode-toggle {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+header .mode-toggle:hover {
+    color: #81c784; /* Light green hover */
+}
+
+/* Hero Section */
+.hero {
+    background-color: #81d4fa; /* Light sky blue background */
+    text-align: center;
+    padding: 50px 20px;
+    color: white;
+}
+
+.hero h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.hero .btn {
+    background-color: #81c784; /* Light teal button */
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.hero .btn:hover {
+    background-color: #66bb6a; /* Slightly darker light teal for hover */
+}
+
+/* Features Section */
+.features {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #ffffff;
+}
+
+.features h2 {
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+
+.feature-item {
+    display: inline-block;
+    width: 30%;
+    margin: 20px;
+    padding: 20px;
+    background-color: #b3e5fc; /* Very light blue for cards */
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.feature-item h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.feature-item p {
+    font-size: 16px;
+    color: #0288d1;
+}
+
+/* Game Section */
+.games {
+    padding: 50px 20px;
+    background-color: #e1f5fe; /* Very light blue background */
+    text-align: center;
+}
+
+.games h2 {
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+
+.game-item {
+    display: inline-block;
+    width: 45%;
+    margin: 20px;
+    padding: 20px;
+    background-color: #b3e5fc; /* Light blue for cards */
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.game-item h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.game-item button {
+    background-color: #81c784; /* Light teal button */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.game-item button:hover {
+    background-color: #66bb6a; /* Slightly darker light teal for hover */
+}
+
+.game-container input {
+    padding: 10px;
+    font-size: 16px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #0288d1; /* Light blue border */
+}
+
+.game-container p {
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #81c784; /* Light teal footer */
+    color: white;
+}
+
+/* Dark Mode Styles (Lighter Blue) */
+body.dark-mode {
+    background-color: #c1e1f5; /* Lighter dark blue background */
+    color: #0288d1; /* Lighter blue text */
+}
+
+body.dark-mode header {
+    background-color: #66bb6a; /* Lighter teal header */
+}
+
+body.dark-mode .hero {
+    background-color: #80deea; /* Light blue hero section */
+}
+
+body.dark-mode footer {
+    background-color: #66bb6a; /* Lighter teal footer */
+}
+
+body.dark-mode .btn {
+    background-color: #4caf50; /* Lighter greenish-blue button */
+    color: white;
+}
+
+body.dark-mode .btn:hover {
+    background-color: #388e3c; /* Slightly darker green for hover */
+}
+
+body.dark-mode .game-item {
+    background-color: #80deea; /* Light blue for cards */
+    color: #0288d1; /* Light blue text */
+}
+
+body.dark-mode .feature-item {
+    background-color: #81d4fa; /* Light blue for cards */
+    color: #0288d1; /* Light blue text */
+}
+
+body.dark-mode header .mode-toggle {
+    color: white;
+}
+
+body.dark-mode header nav ul li a {
+    color: #0288d1; /* Lighter blue text for links */
+}
+
+body.dark-mode header nav ul li a:hover {
+    color: #81c784; /* Light greenish hover */
+}
