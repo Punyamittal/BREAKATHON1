@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BitBuilder - Dark Mode</title>
-    <link rel="stylesheet" href="stylesd.css">
+    <title>BitBuilder - Light Mode</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
@@ -19,28 +19,35 @@
                 <li><a href="#">Contact</a></li>
             </ul>
         </nav>
-        <button id="mode-toggle" class="mode-toggle">🌕 </button>
+        <!-- <button id="mode-toggle" class="mode-toggle">🌑</button> -->
     </header>
 
     <section class="hero">
         <h2>Welcome to BIT BUILDER!</h2>
         <p>Your go-to platform for learning and growth</p>
+        <br>
         <a href="#features" class="btn">Explore Features</a>
     </section>
 
     <section id="features" class="features">
         <h2>Our Features</h2>
         <div class="feature-item">
-            <h3>Interactive Courses</h3>
+            <button onclick="location.href='blogs.html'" class="feature-button" download style="background-color:#4ade80;">
+                <h3>Interactive Courses</h3>
+            </button>
             <p>Engage in hands-on learning with interactive content.</p>
         </div>
         <div class="feature-item">
-            <h3>Expert Tutors</h3>
-            <p>Learn from experienced professionals in your field.</p>
+            <button onclick="location.href='game.html'" class="feature-button" download style="background-color:#4ade80;">
+                <h3>Fun Activity</h3>
+            </button>
+            <p>Learn Through Games</p>
         </div>
         <div class="feature-item">
-            <h3>Community Support</h3>
-            <p>Get help from fellow learners and experts in the community.</p>
+            <button  onclick="location.href='quizbutton.html'"  class="feature-button" download style="background-color:#4ade80;">
+                <h3>Quiz Tests</h3>
+            </button>
+            <p>Test Your Skills</p>
         </div>
     </section>
 
@@ -49,7 +56,17 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        window.embeddedChatbotConfig = {
+            chatbotId: "bpFdLoSJb8fuKXcnH1wpx",
+            domain: "www.chatbase.co"
+        }
+    </script>
+    <script
+        src="https://www.chatbase.co/embed.min.js"
+        chatbotId="bpFdLoSJb8fuKXcnH1wpx"
+        domain="www.chatbase.co"
+        defer>
+    </script>
 </body>
 </html>
-
-

@@ -1,15 +1,19 @@
 /* Default Light Mode Styles (Blue) */
+*{
+    margin:0;
+    padding:0;
+}
 body {
     font-family: Arial, sans-serif;
-    background-color: #e0f7fa; /* Light blue background */
-    color: #00796b; /* Dark teal text */
+    background-color: #4ade80; /* Light blue background */
+    color: #4ade80; /* Dark teal text */
     line-height: 1.6;
     transition: background-color 0.3s, color 0.3s;
 }
 
 header {
-    background-color: #00796b; /* Teal header */
-    color: black;
+    background-color: #4ade80; /* Teal header */
+    color: #1e293b;
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
@@ -31,32 +35,32 @@ header nav ul li {
 
 header nav ul li a {
     text-decoration: none;
-    color: black;
+    color: #1e293b;
     font-size: 16px;
 }
 
 header nav ul li a:hover {
-    color: #80cbc4; /* Light teal for hover */
+    color: #4ade80 ; /* Light teal for hover */
 }
 
 header .mode-toggle {
     background: none;
     border: none;
-    color: black;
+    color: #1e293b;
     font-size: 24px;
     cursor: pointer;
 }
 
 header .mode-toggle:hover {
-    color: #80cbc4; /* Light teal for hover */
+    color: #4ade80; /* Light teal for hover */
 }
 
 /* Hero Section */
 .hero {
-    background-color: #0288d1; /* Bright blue background */
+    background-color: #1e293b; /* Bright blue background */
     text-align: center;
     padding: 50px 20px;
-    color: black;
+    color: #4ade80;
 }
 
 .hero h2 {
@@ -70,7 +74,7 @@ hero p {
 }
 
 .hero .btn {
-    background-color: #00796b; /* Teal button */
+    background-color: #4ade80; /* Teal button */
     color: black;
     padding: 10px 20px;
     text-decoration: none;
@@ -79,14 +83,14 @@ hero p {
 }
 
 .hero .btn:hover {
-    background-color: #004d40; /* Darker teal for hover */
+    background-color: #1e293b; /* Darker teal for hover */
 }
 
 /* Features Section */
 .features {
     padding: 50px 20px;
     text-align: center;
-    background-color: #000000; /* Black background */
+    background-color: #1e293b; /* Black background */
 }
 
 .features h2 {
@@ -99,10 +103,10 @@ hero p {
     width: 30%;
     margin: 20px;
     padding: 20px;
-    background-color: #b2ebf2; /* Light blue for cards */
+    background-color: #1e293b; /* Light blue for cards */
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    color: black;
+    color: #4ade80;
 }
 
 .feature-item h3 {
@@ -112,29 +116,29 @@ hero p {
 
 .feature-item p {
     font-size: 16px;
-    color: #00796b;
+    color: #4ade80;
 }
 
 /* Footer Styles */
 footer {
     text-align: center;
     padding: 20px;
-    background-color: #00796b; /* Teal footer */
+    background-color: #4ade80; /* Teal footer */
     color: black;
 }
 
 /* Dark Mode Styles (Blue) */
 body.dark-mode {
-    background-color: #003c49; /* Dark blue background */
+    background-color: #4ade80; /* Dark blue background */
     color: #b2ebf2; /* Light blue text */
 }
 
 body.dark-mode header {
-    background-color: #004d40; /* Darker teal header */
+    background-color: #4ade80; /* Darker teal header */
 }
 
 body.dark-mode .hero {
-    background-color: #01579b; /* Dark blue hero section */
+    background-color: #1e293b; /* Dark blue hero section */
     color: black;
 }
 
@@ -157,8 +161,8 @@ body.dark-mode .game-item {
 }
 
 body.dark-mode .feature-item {
-    background-color: #01579b; /* Dark blue for cards */
-    color: #b2ebf2; /* Light blue text */
+    background-color: #1e293b; /* Dark blue for cards */
+    color: #1e293b; /* Light blue text */
 }
 
 body.dark-mode header .mode-toggle {
@@ -166,12 +170,29 @@ body.dark-mode header .mode-toggle {
 }
 
 body.dark-mode header nav ul li a {
-    color: #b2ebf2; /* Light blue text for links */
+    color: #1e293b; /* Light blue text for links */
 }
 
 body.dark-mode header nav ul li a:hover {
     color: #80cbc4; /* Light teal for hover */
 }
 
+.feature-button{
+    
+        background-color: #3498db;
+        color:#1e293b ;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        outline: none;
+        transition: box-shadow 0.3s ease;
+        box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2); /* Horizontal, Vertical, Blur, Color */
+    }
+    
+    .feature-button:hover {
+        box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.3); /* Larger shadow on hover */
+    }
+    
 
 

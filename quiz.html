@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Development Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .quiz-container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .question {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .options label {
+            display: block;
+            background: #e7e7e7;
+            padding: 10px;
+            margin: 5px 0;
+            width: 100%;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .options input {
+            margin-right: 10px;
+        }
+
+        .options label:hover {
+            background-color: #d0d0d0;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .leave {
+            background-color: #dc3545;
+        }
+
+        .leave:hover {
+            background-color: #c82333;
+        }
+
+        .skip {
+            background-color: #ffc107;
+            color: #333;
+        }
+
+        .skip:hover {
+            background-color: #e0a800;
+        }
+
+        .save {
+            background-color: #28a745;
+        }
+
+        .save:hover {
+            background-color: #218838;
+        }
+
+        .results {
+            display: none;
+            margin-top: 20px;
+            padding: 10px;
+            background: #e2e3e5;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>Web Development Quiz</h1>
+        <div class="question" id="question">Question 1: What does HTML stand for?</div>
+        <div class="options" id="options">
+            <label><input type="radio" name="answer" value="Hyperlinks and Text Markup Language"> Hyperlinks and Text Markup Language</label>
+            <label><input type="radio" name="answer" value="Hyper Text Markup Language"> Hyper Text Markup Language</label>
+            <label><input type="radio" name="answer" value="Home Tool Markup Language"> Home Tool Markup Language</label>
+        </div>
+        <div class="buttons">
+            <button class="leave" id="leave-btn">Leave</button>
+            <button class="skip" id="skip-btn">Skip</button>
+            <button class="save" id="save-btn">Save</button>
+        </div>
+        <div class="results" id="results">
+            <h2>Quiz Saved Responses:</h2>
+            <ul id="saved-responses"></ul>
+        </div>
+    </div>
+
+    <script>
+        const questions = [
+            {
+                question: "What does HTML stand for?",
+                options: [
+                    "Hyperlinks and Text Markup Language",
+                    "Hyper Text Markup Language",
+                    "Home Tool Markup Language"
+                ]
+            },
+            {
+                question: "What does CSS stand for?",
+                options: [
+                    "Cascading Style Sheets",
+                    "Computer Style Sheets",
+                    "Creative Style Sheets"
+                ]
+            },
+            {
+                question: "What is JavaScript primarily used for?",
+                options: [
+                    "Styling web pages",
+                    "Adding interactivity to web pages",
+                    "Creating databases"
+                ]
+            },
+            {
+                question: "What does the `<div>` tag represent?",
+                options: [
+                    "A heading",
+                    "A container for content",
+                    "A list item"
+                ]
+            },
+            {
+                question: "Which language is used for server-side scripting?",
+                options: [
+                    "HTML",
+                    "PHP",
+                    "CSS"
+                ]
+            },
+            {
+                question: "Which of these is a JavaScript library?",
+                options: [
+                    "Bootstrap",
+                    "jQuery",
+                    "Sass"
+                ]
+            },
+            {
+                question: "What does the `href` attribute do?",
+                options: [
+                    "Adds a hyperlink",
+                    "Specifies an image source",
+                    "Defines a heading"
+                ]
+            },
+            {
+                question: "What is the primary function of `git`?",
+                options: [
+                    "Styling web pages",
+                    "Version control",
+                    "Database management"
+                ]
+            },
+            {
+                question: "Which tag is used to include JavaScript?",
+                options: [
+                    "<js>",
+                    "<script>",
+                    "<style>"
+                ]
+            },
+            {
+                question: "Which protocol is secure for data transmission?",
+                options: [
+                    "HTTP",
+                    "FTP",
+                    "HTTPS"
+                ]
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        const questionElement = document.getElementById("question");
+        const optionsElement = document.getElementById("options");
+        const leaveBtn = document.getElementById("leave-btn");
+        const skipBtn = document.getElementById("skip-btn");
+        const saveBtn = document.getElementById("save-btn");
+        const savedResponsesElement = document.getElementById("saved-responses");
+        const resultsElement = document.getElementById("results");
+
+        const savedAnswers = [];
+
+        function loadQuestion(index) {
+            const currentQuestion = questions[index];
+            questionElement.textContent = `Question ${index + 1}: ${currentQuestion.question}`;
+            optionsElement.innerHTML = "";
+            currentQuestion.options.forEach(option => {
+                const label = document.createElement("label");
+                label.innerHTML = `<input type="radio" name="answer" value="${option}"> ${option}`;
+                optionsElement.appendChild(label);
+            });
+        }
+
+        function saveAnswer() {
+            const selectedOption = document.querySelector('input[name="answer"]:checked');
+            if (selectedOption) {
+                savedAnswers[currentQuestionIndex] = selectedOption.value;
+                alert("Answer saved!");
+                nextQuestion();
+            } else {
+                alert("Please select an option before saving.");
+            }
+        }
+
+        function nextQuestion() {
+            if (currentQuestionIndex < questions.length - 1) {
+                currentQuestionIndex++;
+                loadQuestion(currentQuestionIndex);
+            } else {
+                alert("You have completed the quiz!");
+                showResults();
+            }
+        }
+
+        function skipQuestion() {
+            savedAnswers[currentQuestionIndex] = "Skipped";
+            nextQuestion();
+        }
+
+        function showResults() {
+            resultsElement.style.display = "block";
+            savedResponsesElement.innerHTML = "";
+            questions.forEach((q, i) => {
+                const li = document.createElement("li");
+                li.textContent = `Q${i + 1}: ${q.question} - ${savedAnswers[i] || "Not answered"}`;
+                savedResponsesElement.appendChild(li);
+            });
+        }
+
+        leaveBtn.addEventListener("click", () => {
+            if (confirm("Are you sure you want to leave the quiz? Your progress will be lost.")) {
+                window.location.href = "index.html"; // Redirect or modify as needed
+            }
+        });
+
+        skipBtn.addEventListener("click", skipQuestion);
+        saveBtn.addEventListener("click", saveAnswer);
+
+        loadQuestion(currentQuestionIndex);
+    </script>
+</body>
+</html>
