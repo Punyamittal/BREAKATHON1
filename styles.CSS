@@ -194,6 +194,6 @@ body.dark-mode header nav ul li a:hover {
         box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2); /* Horizontal, Vertical, Blur, Color */
     }
     
-    .feature-button:hover {
+.feature-button:hover {
         box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.3); /* Larger shadow on hover */
-    }
+}
