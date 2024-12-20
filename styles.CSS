@@ -12,6 +12,9 @@ body {
 }
 
 header {
+    position: sticky; /* Make the header sticky */
+    top: 0; /* Keep it at the top of the viewport */
+    z-index: 1000; /* Ensure it appears above other content */
     background-color: #4ade80; /* Teal header */
     color: #1e293b;
     padding: 10px 20px;
@@ -19,6 +22,7 @@ header {
     justify-content: space-between;
     align-items: center;
 }
+
 
 header .logo h1 {
     font-size: 24px;
@@ -90,7 +94,7 @@ hero p {
 .features {
     padding: 50px 20px;
     text-align: center;
-    background-color: #1e293b; /* Black background */
+    background: url('hands-typing-on-laptop-programming-600nw-2480023489.webp') no-repeat center/cover; /* Image background */
 }
 
 .features h2 {
@@ -191,8 +195,5 @@ body.dark-mode header nav ul li a:hover {
     }
     
     .feature-button:hover {
-        box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.3); /* Larger shadow on hover */
-    }
-    
-
-
+        box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.3); /* Larger shadow on hover */
+    }

@@ -118,20 +118,17 @@
 <body>
     <div class="quiz-container">
         <h1>Web Development Quiz</h1>
-        <div class="question" id="question">Question 1: What does HTML stand for?</div>
-        <div class="options" id="options">
-            <label><input type="radio" name="answer" value="Hyperlinks and Text Markup Language"> Hyperlinks and Text Markup Language</label>
-            <label><input type="radio" name="answer" value="Hyper Text Markup Language"> Hyper Text Markup Language</label>
-            <label><input type="radio" name="answer" value="Home Tool Markup Language"> Home Tool Markup Language</label>
-        </div>
+        <div class="question" id="question">Question 1</div>
+        <div class="options" id="options"></div>
         <div class="buttons">
             <button class="leave" id="leave-btn">Leave</button>
             <button class="skip" id="skip-btn">Skip</button>
             <button class="save" id="save-btn">Save</button>
         </div>
         <div class="results" id="results">
-            <h2>Quiz Saved Responses:</h2>
+            <h2>Quiz Results:</h2>
             <ul id="saved-responses"></ul>
+            <p><strong>Total Points:</strong> <span id="total-points"></span></p>
         </div>
     </div>
 
@@ -142,80 +139,100 @@
                 options: [
                     "Hyperlinks and Text Markup Language",
                     "Hyper Text Markup Language",
-                    "Home Tool Markup Language"
-                ]
+                    "Home Tool Markup Language",
+                    "Hyper Tool Machine Language"
+                ],
+                answer: "Hyper Text Markup Language"
             },
             {
                 question: "What does CSS stand for?",
                 options: [
                     "Cascading Style Sheets",
                     "Computer Style Sheets",
-                    "Creative Style Sheets"
-                ]
+                    "Creative Style Sheets",
+                    "Cascading Script Sheets"
+                ],
+                answer: "Cascading Style Sheets"
             },
             {
                 question: "What is JavaScript primarily used for?",
                 options: [
                     "Styling web pages",
                     "Adding interactivity to web pages",
-                    "Creating databases"
-                ]
+                    "Creating databases",
+                    "Server-side scripting"
+                ],
+                answer: "Adding interactivity to web pages"
             },
             {
-                question: "What does the `<div>` tag represent?",
+                question: "Which tag is used to create a hyperlink in HTML?",
                 options: [
-                    "A heading",
-                    "A container for content",
-                    "A list item"
-                ]
+                    "<a>",
+                    "<link>",
+                    "<href>",
+                    "<hyper>"
+                ],
+                answer: "<a>"
             },
             {
-                question: "Which language is used for server-side scripting?",
+                question: "What does the alt attribute in an image tag specify?",
                 options: [
-                    "HTML",
-                    "PHP",
-                    "CSS"
-                ]
+                    "The alignment of the image",
+                    "An alternate text for the image",
+                    "The animation effect",
+                    "The alternate source"
+                ],
+                answer: "An alternate text for the image"
             },
             {
-                question: "Which of these is a JavaScript library?",
+                question: "What is the correct way to declare a JavaScript variable?",
                 options: [
-                    "Bootstrap",
-                    "jQuery",
-                    "Sass"
-                ]
+                    "var myVariable;",
+                    "variable myVariable;",
+                    "v myVariable;",
+                    "declare myVariable;"
+                ],
+                answer: "var myVariable;"
             },
             {
-                question: "What does the `href` attribute do?",
+                question: "Which of the following is a front-end framework?",
                 options: [
-                    "Adds a hyperlink",
-                    "Specifies an image source",
-                    "Defines a heading"
-                ]
+                    "Laravel",
+                    "Django",
+                    "React",
+                    "Flask"
+                ],
+                answer: "React"
             },
             {
-                question: "What is the primary function of `git`?",
+                question: "What does the <ul> tag represent?",
                 options: [
-                    "Styling web pages",
-                    "Version control",
-                    "Database management"
-                ]
-            },
-            {
-                question: "Which tag is used to include JavaScript?",
-                options: [
-                    "<js>",
-                    "<script>",
-                    "<style>"
-                ]
+                    "An unordered list",
+                    "A unique list",
+                    "A utility list",
+                    "A universal list"
+                ],
+                answer: "An unordered list"
             },
             {
                 question: "Which protocol is secure for data transmission?",
                 options: [
                     "HTTP",
                     "FTP",
-                    "HTTPS"
-                ]
+                    "HTTPS",
+                    "SMTP"
+                ],
+                answer: "HTTPS"
+            },
+            {
+                question: "What is the main purpose of Git?",
+                options: [
+                    "Database management",
+                    "Version control",
+                    "File sharing",
+                    "Data visualization"
+                ],
+                answer: "Version control"
             }
         ];
 
@@ -227,12 +244,14 @@
         const saveBtn = document.getElementById("save-btn");
         const savedResponsesElement = document.getElementById("saved-responses");
         const resultsElement = document.getElementById("results");
+        const totalPointsElement = document.getElementById("total-points");
 
         const savedAnswers = [];
+        let totalPoints = 0;
 
         function loadQuestion(index) {
             const currentQuestion = questions[index];
-            questionElement.textContent = `Question ${index + 1}: ${currentQuestion.question}`;
+            questionElement.textContent =`Question ${index + 1}: ${currentQuestion.question}`;
             optionsElement.innerHTML = "";
             currentQuestion.options.forEach(option => {
                 const label = document.createElement("label");
@@ -244,7 +263,13 @@
         function saveAnswer() {
             const selectedOption = document.querySelector('input[name="answer"]:checked');
             if (selectedOption) {
-                savedAnswers[currentQuestionIndex] = selectedOption.value;
+                const selectedValue = selectedOption.value;
+                savedAnswers[currentQuestionIndex] = selectedValue;
+
+                if (selectedValue === questions[currentQuestionIndex].answer) {
+                    totalPoints++;
+                }
+
                 alert("Answer saved!");
                 nextQuestion();
             } else {
@@ -272,14 +297,17 @@
             savedResponsesElement.innerHTML = "";
             questions.forEach((q, i) => {
                 const li = document.createElement("li");
-                li.textContent = `Q${i + 1}: ${q.question} - ${savedAnswers[i] || "Not answered"}`;
+                li.textContent = `Q${i + 1}: ${q.question} - Your Answer: ${
+                    savedAnswers[i] || "Not answered"
+                } (Correct Answer: ${q.answer})`;
                 savedResponsesElement.appendChild(li);
             });
+            totalPointsElement.textContent =` ${totalPoints}/${questions.length}`;
         }
 
         leaveBtn.addEventListener("click", () => {
             if (confirm("Are you sure you want to leave the quiz? Your progress will be lost.")) {
-                window.location.href = "index.html"; // Redirect or modify as needed
+                window.location.href = "index.html";
             }
         });
 
